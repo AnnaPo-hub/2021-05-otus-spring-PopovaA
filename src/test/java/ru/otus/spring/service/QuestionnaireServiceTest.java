@@ -10,13 +10,13 @@ import static org.mockito.Mockito.*;
 
 class QuestionnaireServiceTest {
 
-    private QuestionnaireService service;
+    private QuestionnaireServiceImpl service;
     private QuestionDaoSimple dao;
 
     @Before
     public void setUp(){
         dao = mock(QuestionDaoSimple.class);
-        service = new QuestionnaireService(dao);
+        service = new QuestionnaireServiceImpl(dao);
     }
 
     @Test

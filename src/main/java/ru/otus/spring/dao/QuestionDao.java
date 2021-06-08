@@ -3,5 +3,9 @@ package ru.otus.spring.dao;
 import java.io.FileNotFoundException;
 
 public interface QuestionDao {
-    void showQuestion() throws FileNotFoundException;
+    void askUserName();
+
+    int showQuestion() throws FileNotFoundException;
+
+    void showResults();
 }
