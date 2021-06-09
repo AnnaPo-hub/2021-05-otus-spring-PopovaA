@@ -14,13 +14,12 @@ import java.util.Scanner;
 @PropertySource("classpath:score.properties")
 public class QuestionDaoSimple implements QuestionDao {
 
-    static int correctReplyQuantity;
+    private static int correctReplyQuantity;
 
-    String user;
+    private String user;
 
-  //  @org.springframework.beans.factory.annotation.Value("${path}")// TO DO доработать путь из проперти
-    String path = "target/classes/questionnaire.csv";
-
+    //  @org.springframework.beans.factory.annotation.Value("${path}")// TO DO доработать путь из проперти
+    private String path = "target/classes/questionnaire.csv";
 
 
     @Override
@@ -30,8 +29,7 @@ public class QuestionDaoSimple implements QuestionDao {
         user = scan.nextLine();
     }
 
-
-    private List<Question> getQuestionsFromFile() throws FileNotFoundException {
+    public List<Question> getQuestionsFromFile(String path) throws FileNotFoundException {
         List<Question> questions = new ArrayList<>();
 
         Scanner scanner = new Scanner(new File(path));
@@ -46,7 +44,7 @@ public class QuestionDaoSimple implements QuestionDao {
 
     @Override
     public int showQuestion() throws FileNotFoundException {
-        List<Question> questions = getQuestionsFromFile();
+        List<Question> questions = getQuestionsFromFile(path);
         for (Question question : questions) {
             System.out.println(question.getQuestionNumber() + " " + question.getQuestion());
             Scanner scan = new Scanner(System.in);
@@ -59,12 +57,14 @@ public class QuestionDaoSimple implements QuestionDao {
     }
 
     @Override
-    public void showResults() {
-        int passed = 3;
+    public boolean showResults(int correctReplyQuantity) {
+        final int passed = 3;
         if (correctReplyQuantity >= passed) {
             System.out.println("Dear " + user + " Congratulations!You have passed the test!");
+            return true;
         } else {
             System.out.println("Dear " + user + " You have not passed the test. Invite your friends and watch the Lord of the Rings trilogy again.");
+            return false;
         }
     }
 }

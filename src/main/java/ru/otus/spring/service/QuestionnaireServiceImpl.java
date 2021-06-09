@@ -17,7 +17,6 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 
     public void playQuestions() throws FileNotFoundException {
         dao.askUserName();
-        dao.showQuestion();
-        dao.showResults();
+        dao.showResults(dao.showQuestion());
     }
 }

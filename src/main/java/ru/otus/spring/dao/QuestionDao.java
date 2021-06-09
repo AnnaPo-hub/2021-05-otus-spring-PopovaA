@@ -7,5 +7,5 @@ public interface QuestionDao {
 
     int showQuestion() throws FileNotFoundException;
 
-    void showResults();
+    boolean showResults(int correctReplyQuantity);
 }
