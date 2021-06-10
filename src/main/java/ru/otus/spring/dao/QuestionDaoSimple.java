@@ -1,6 +1,8 @@
 package ru.otus.spring.dao;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.stereotype.Repository;
 import ru.otus.spring.domain.Question;
 
@@ -13,12 +15,16 @@ import java.util.Scanner;
 @Repository("questionDao")
 @PropertySource("classpath:score.properties")
 public class QuestionDaoSimple implements QuestionDao {
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
     private static int correctReplyQuantity;
 
     private String user;
 
-    //  @org.springframework.beans.factory.annotation.Value("${path}")// TO DO доработать путь из проперти
+    //@Value("${path}")// TO DO доработать путь из проперти
     private String path = "target/classes/questionnaire.csv";
 
 
