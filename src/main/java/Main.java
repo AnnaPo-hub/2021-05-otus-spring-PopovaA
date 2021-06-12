@@ -11,6 +11,6 @@ public class Main {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(Main.class);
         QuestionnaireService service = context.getBean(QuestionnaireService.class);
-        service.playQuestions();
+        service.startQuestionnaire();
     }
 }
