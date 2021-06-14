@@ -20,13 +20,10 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     private final QuestionnaireResults questionnaireResults;
     private final QuestionDao questionDao;
 
-    @Value("${pathToQuestion}")// TO DO доработать путь из проперти
-            String pathToQuestion; // = "target/classes/questionnaire.csv";
+    @Value("${pathToQuestion}")
+    String pathToQuestion;
 
 
-    //    public QuestionnaireServiceImpl(@Qualifier("questionDao") QuestionDao dao) {
-//        this.dao = dao;
-//    }
     public QuestionnaireServiceImpl(@Qualifier("askUserName") Greeting greeting,
                                     @Qualifier("questionShow") QuestionShow questionShow,
                                     @Qualifier("results") QuestionnaireResults questionnaireResults,
