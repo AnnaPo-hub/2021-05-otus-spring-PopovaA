@@ -1,4 +1,4 @@
-package ru.otus.spring.dao;
+package ru.otus.spring.utils;
 
 import org.springframework.context.annotation.Configuration;
 

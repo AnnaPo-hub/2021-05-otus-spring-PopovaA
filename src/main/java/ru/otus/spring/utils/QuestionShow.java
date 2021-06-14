@@ -1,4 +1,4 @@
-package ru.otus.spring.dao;
+package ru.otus.spring.utils;
 
 import org.springframework.context.annotation.Configuration;
 import ru.otus.spring.domain.Question;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class QuestionShow {
 
     public int showQuestion(List<Question> questions) {
-        int correctReplyQuantity= 0;
+        int correctReplyQuantity = 0;
         for (Question question : questions) {
             System.out.println(question.getQuestionNumber() + " " + question.getQuestion());
             Scanner scan = new Scanner(System.in);

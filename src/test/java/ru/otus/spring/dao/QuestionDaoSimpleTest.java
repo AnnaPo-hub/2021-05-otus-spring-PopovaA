@@ -1,8 +1,10 @@
 package ru.otus.spring.dao;
 
+import ru.otus.spring.utils.QuestionnaireResults;
+
 class QuestionDaoSimpleTest {
     QuestionDaoSimple dao = new QuestionDaoSimple();
-    Results results = new Results();
+    QuestionnaireResults questionnaireResults = new QuestionnaireResults();
 
 
 //    @Test
