@@ -1,10 +1,9 @@
 package ru.otus.spring.utils;
 
-import org.springframework.context.annotation.Configuration;
-
+import org.springframework.stereotype.Service;
 import java.util.Scanner;
 
-@Configuration("askUserName")
+@Service
 public class Greeting {
     public String askUserName() {
         System.out.println("Hello! Please enter your name and surname");

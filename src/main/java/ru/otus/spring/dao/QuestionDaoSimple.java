@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 @Component("questionDao")
 public class QuestionDaoSimple implements QuestionDao {
-
+    @Override
     public List<Question> getQuestionsFromFile(String path) throws FileNotFoundException {
         List<Question> questions = new ArrayList<>();
         Scanner scanner = new Scanner(new File(path));

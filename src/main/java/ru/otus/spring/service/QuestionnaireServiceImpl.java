@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 @PropertySource("classpath:application.properties")
 public class QuestionnaireServiceImpl implements QuestionnaireService {
 
-    private final Greeting greeting;
+
     private final QuestionShow questionShow;
     private final QuestionnaireResults questionnaireResults;
     private final QuestionDao questionDao;
@@ -24,18 +24,19 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     String pathToQuestion;
 
 
-    public QuestionnaireServiceImpl(@Qualifier("askUserName") Greeting greeting,
-                                    @Qualifier("questionShow") QuestionShow questionShow,
-                                    @Qualifier("results") QuestionnaireResults questionnaireResults,
-                                    @Qualifier("questionDao") QuestionDao questionDao) {
-        this.greeting = greeting;
+    public QuestionnaireServiceImpl(
+            @Qualifier("askUserName") Greeting greeting, @Qualifier("showQuestion") QuestionShow questionShow,
+            @Qualifier("results") QuestionnaireResults questionnaireResults,
+            @Qualifier("questionDao") QuestionDao questionDao) {
+
         this.questionShow = questionShow;
         this.questionnaireResults = questionnaireResults;
         this.questionDao = questionDao;
     }
 
     public void startQuestionnaire() throws FileNotFoundException {
-        questionnaireResults.showResults(greeting.askUserName(),
-                questionShow.showQuestion(questionDao.getQuestionsFromFile(pathToQuestion)));
+        questionShow.showQuestion(questionDao.getQuestionsFromFile(pathToQuestion));
+//        questionnaireResults.showResults(greeting.askUserName(),
+//                questionShow.showQuestion(questionDao.getQuestionsFromFile(pathToQuestion)));
     }
 }

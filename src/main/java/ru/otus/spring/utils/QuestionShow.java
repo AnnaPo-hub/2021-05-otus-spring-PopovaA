@@ -1,12 +1,12 @@
 package ru.otus.spring.utils;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import ru.otus.spring.domain.Question;
 
 import java.util.List;
 import java.util.Scanner;
 
-@Configuration
+@Component("showQuestion")
 public class QuestionShow {
 
     public int showQuestion(List<Question> questions) {
