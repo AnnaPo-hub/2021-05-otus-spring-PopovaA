@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 @PropertySource("classpath:application.properties")
 public class QuestionnaireServiceImpl implements QuestionnaireService {
 
-
+    private final Greeting greeting;
     private final QuestionShow questionShow;
     private final QuestionnaireResults questionnaireResults;
     private final QuestionDao questionDao;
@@ -28,7 +28,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
             @Qualifier("askUserName") Greeting greeting, @Qualifier("showQuestion") QuestionShow questionShow,
             @Qualifier("results") QuestionnaireResults questionnaireResults,
             @Qualifier("questionDao") QuestionDao questionDao) {
-
+        this.greeting = greeting;
         this.questionShow = questionShow;
         this.questionnaireResults = questionnaireResults;
         this.questionDao = questionDao;

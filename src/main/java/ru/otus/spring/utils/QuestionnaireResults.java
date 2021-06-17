@@ -5,14 +5,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration("results")
 public class QuestionnaireResults {
 
-    public boolean showResults(String user, int correctReplyQuantity) {
+    public boolean checkResults(int correctReplyQuantity) {
         final int passed = 3;
-        if (correctReplyQuantity >= passed) {
-            System.out.println("Dear " + user + " Congratulations!You have passed the test!");
-            return true;
-        } else {
-            System.out.println("Dear " + user + ", " + " You have not passed the test. Invite your friends and watch the Lord of the Rings trilogy again.");
-            return false;
-        }
+        return correctReplyQuantity >= passed;
+    }
+
+    public String showResults(String user, boolean results) {
+        if (results) {
+            return "Dear " + user + ", congratulations!You have passed the test!";
+        } else
+            return "Dear " + user + ", you have not passed the test. Invite your friends and watch the Lord of the Rings trilogy again.";
     }
 }
