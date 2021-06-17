@@ -14,25 +14,25 @@ class QuestionDaoSimpleTest {
 
 
     @Test
-    void shouldShowNegativeResult() throws FileNotFoundException {
+    void shouldShowNegativeResult() {
         Assertions.assertFalse(questionnaireResults.checkResults(1));
     }
 
     @Test
-    void shouldShowPositiveResult() throws FileNotFoundException {
-        Assertions.assertTrue(questionnaireResults.checkResults( 5));
+    void shouldShowPositiveResult() {
+        Assertions.assertTrue(questionnaireResults.checkResults(3));
     }
 
     @Test
-    void shouldPrintNegativeResult(){
+    void shouldPrintNegativeResult() {
         Assertions.assertEquals("Dear Ivan Ivanov, you have not passed the test. Invite your friends and watch the Lord of the Rings trilogy again.",
                 questionnaireResults.showResults("Ivan Ivanov", false));
     }
 
     @Test
-    void shouldPrintPositiveResult(){
-       Assertions.assertEquals("Dear Ivan Ivanov, congratulations!You have passed the test!",
-               questionnaireResults.showResults("Ivan Ivanov", true));
+    void shouldPrintPositiveResult() {
+        Assertions.assertEquals("Dear Ivan Ivanov, congratulations!You have passed the test!",
+                questionnaireResults.showResults("Ivan Ivanov", true));
     }
 
     @Test
