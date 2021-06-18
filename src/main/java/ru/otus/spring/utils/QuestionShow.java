@@ -6,7 +6,7 @@ import ru.otus.spring.domain.Question;
 import java.util.List;
 import java.util.Scanner;
 
-@Component("showQuestion")
+@Component
 public class QuestionShow {
 
     public int showQuestion(List<Question> questions) {

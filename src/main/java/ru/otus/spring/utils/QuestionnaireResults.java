@@ -2,7 +2,7 @@ package ru.otus.spring.utils;
 
 import org.springframework.context.annotation.Configuration;
 
-@Configuration("results")
+@Configuration
 public class QuestionnaireResults {
 
     public boolean checkResults(int correctReplyQuantity) {

@@ -6,6 +6,5 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public interface QuestionDao {
-
     List<Question> getQuestionsFromFile(String path) throws FileNotFoundException;
 }

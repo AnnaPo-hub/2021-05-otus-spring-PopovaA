@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-@Component("questionDao")
+@Component
 public class QuestionDaoSimple implements QuestionDao {
     @Override
     public List<Question> getQuestionsFromFile(String path) throws FileNotFoundException {

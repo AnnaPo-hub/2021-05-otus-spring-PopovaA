@@ -1,6 +1,5 @@
 package ru.otus.spring.service;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
@@ -25,9 +24,9 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 
 
     public QuestionnaireServiceImpl(
-            @Qualifier("askUserName") Greeting greeting, @Qualifier("showQuestion") QuestionShow questionShow,
-            @Qualifier("results") QuestionnaireResults questionnaireResults,
-            @Qualifier("questionDao") QuestionDao questionDao) {
+            Greeting greeting, QuestionShow questionShow,
+            QuestionnaireResults questionnaireResults,
+            QuestionDao questionDao) {
         this.greeting = greeting;
         this.questionShow = questionShow;
         this.questionnaireResults = questionnaireResults;
@@ -35,8 +34,8 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     }
 
     public void startQuestionnaire() throws FileNotFoundException {
-        questionShow.showQuestion(questionDao.getQuestionsFromFile(pathToQuestion));
-//        questionnaireResults.showResults(greeting.askUserName(),
-//                questionShow.showQuestion(questionDao.getQuestionsFromFile(pathToQuestion)));
+        String userName = greeting.askUserName();
+        boolean results = questionnaireResults.checkResults(questionShow.showQuestion(questionDao.getQuestionsFromFile(pathToQuestion)));
+        System.out.println(questionnaireResults.showResults(userName, results));
     }
 }
